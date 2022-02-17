@@ -28,7 +28,7 @@ const fs = require('fs');
 // fs.writeFileSync(path.join(__dirname, 'data.js'), 'somedata');
 // - sync write to file
 
-// - async write to file nad create file
+// - async write to file and create file
 // fs.writeFile(path.join(__dirname,'text.js'),'some DATA', (err) => {
 //     if (err) {
 //         console.log(err);
