@@ -3,14 +3,14 @@ import {
 } from 'typeorm';
 
 interface ICommonFields {
-    id:number
-    createdAt:string
-    deletedAt?:string
+    id: number
+    createdAt: string
+    deletedAt?: string
 }
 
 export class CommonFields implements ICommonFields {
     @PrimaryGeneratedColumn()
-        id:number;
+        id: number;
 
     @Column({
         nullable: false,

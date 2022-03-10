@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.ts",
   "scripts": {
-    "start": "rimraf dist && tsc-watch --onSuccess 'npm run watch:server'",
-    "watch:server": "nodemon --watch src src/app.ts",
+    "start": "rimraf dist && npm run lint:fix && tsc-watch --onSuccess 'npm run watch:server'",
+    "watch:server": "npm run lint:fix && nodemon --watch src src/app.ts",
     "lint": "eslint --cache --ext .js,.ts src",
     "lint:fix": "npm run lint -- --fix",
 
