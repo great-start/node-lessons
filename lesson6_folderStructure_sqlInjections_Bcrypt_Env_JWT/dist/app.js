@@ -7,9 +7,11 @@ require("reflect-metadata");
 const express_1 = __importDefault(require("express"));
 const typeorm_1 = require("typeorm");
 const user_1 = require("./entity/user");
+const apiRouter_1 = require("./router/apiRouter");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded());
+app.use(apiRouter_1.apiRouter);
 app.get('/users', async (req, res) => {
     // const users = await getManager().getRepository(User).find();
     // console.log(users);
@@ -39,11 +41,11 @@ app.get('/users', async (req, res) => {
     // console.log(user);
     // res.json(user);
 });
-app.post('/users', async (req, res) => {
-    console.log(req.body);
-    const createdUser = await (0, typeorm_1.getManager)().getRepository(user_1.User).save(req.body);
-    res.json(createdUser);
-});
+// app.post('/users', async (req: Request, res: Response) => {
+//     console.log(req.body);
+//     const createdUser = await getManager().getRepository(User).save(req.body);
+//     res.json(createdUser);
+// });
 app.patch('/users/:id', async (req, res) => {
     const { password, email } = req.body;
     const createdUser = await (0, typeorm_1.getManager)()
@@ -54,10 +56,16 @@ app.patch('/users/:id', async (req, res) => {
     });
     res.json(createdUser);
 });
+// app.delete('/users/:id', async (req: Request<any>, res: Response) => {
+//     const createdUser = await getManager()
+//         .getRepository(User)
+//         .delete({ id: Number(req.params.id) });
+//     res.json(createdUser);
+// });
 app.delete('/users/:id', async (req, res) => {
     const createdUser = await (0, typeorm_1.getManager)()
         .getRepository(user_1.User)
-        .delete({ id: Number(req.params.id) });
+        .softDelete({ id: Number(req.params.id) });
     res.json(createdUser);
 });
 app.listen(5200, async () => {

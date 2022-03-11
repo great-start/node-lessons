@@ -54,10 +54,16 @@ app.patch('/users/:id', async (req, res) => {
     });
     res.json(createdUser);
 });
+// app.delete('/users/:id', async (req: Request<any>, res: Response) => {
+//     const createdUser = await getManager()
+//         .getRepository(User)
+//         .delete({ id: Number(req.params.id) });
+//     res.json(createdUser);
+// });
 app.delete('/users/:id', async (req, res) => {
     const createdUser = await (0, typeorm_1.getManager)()
         .getRepository(user_1.User)
-        .delete({ id: Number(req.params.id) });
+        .softDelete({ id: Number(req.params.id) });
     res.json(createdUser);
 });
 app.listen(5200, async () => {
