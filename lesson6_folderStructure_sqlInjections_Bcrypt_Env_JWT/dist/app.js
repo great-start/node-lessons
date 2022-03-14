@@ -10,8 +10,9 @@ const user_1 = require("./entity/user");
 const apiRouter_1 = require("./router/apiRouter");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use(express_1.default.urlencoded());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(apiRouter_1.apiRouter);
+const { PORT } = process.env;
 app.get('/users', async (req, res) => {
     // const users = await getManager().getRepository(User).find();
     // console.log(users);
@@ -68,7 +69,7 @@ app.delete('/users/:id', async (req, res) => {
         .softDelete({ id: Number(req.params.id) });
     res.json(createdUser);
 });
-app.listen(5200, async () => {
+app.listen(PORT, async () => {
     try {
         const connection = await (0, typeorm_1.createConnection)();
         if (connection) {
@@ -79,6 +80,6 @@ app.listen(5200, async () => {
         if (e)
             console.log(e);
     }
-    console.log('Server has started!!!YEAH!!!');
+    console.log(`Server has started on port: ${PORT}`);
 });
 //# sourceMappingURL=app.js.map
