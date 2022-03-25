@@ -1,1 +1,0 @@
-{"version":3,"file":"1645631731782-CreateTable.js","sourceRoot":"","sources":["../../src/migration/1645631731782-CreateTable.ts"],"names":[],"mappings":";;;AAEA,MAAa,wBAAwB;IAC1B,KAAK,CAAC,EAAE,CAAC,WAAwB;QACpC,MAAM,WAAW,CAAC,KAAK,CAAC;;;;;;;;;;;;SAYvB,CAAC,CAAC;IACP,CAAC;IAEM,KAAK,CAAC,IAAI,CAAC,WAAwB;QACtC,MAAM,WAAW,CAAC,KAAK,CAAC;;SAEvB,CAAC,CAAC;IACP,CAAC;CACJ;AAtBD,4DAsBC"}
