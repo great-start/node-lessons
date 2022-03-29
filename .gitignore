@@ -10,3 +10,7 @@
 /lesson5/dist/
 /lesson4_eslint_typeorm_migrations/dist/
 /lesson8_login_logout/dist/
+/lesson10_joi_errorHandler/node_modules/
+/lesson10_joi_errorHandler/dist/
+/lesson9_refresh_postman_tests/dist/
+/lesson9_refresh_postman_tests/node_modules/

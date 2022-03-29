@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateTable1645628691738 = void 0;
-class CreateTable1645628691738 {
-    async up(queryRunner) {
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class CreateTable1645628691738 implements MigrationInterface {
+    public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS Users (
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -17,11 +16,10 @@ class CreateTable1645628691738 {
                 )
         `);
     }
-    async down(queryRunner) {
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
             DROP TABLE IF EXISTS Test
         `);
     }
 }
-exports.CreateTable1645628691738 = CreateTable1645628691738;
-//# sourceMappingURL=1645631731782-CreateTable.js.map

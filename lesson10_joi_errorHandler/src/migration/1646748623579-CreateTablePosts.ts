@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateTablePosts1646748623579 = void 0;
-const typeorm_1 = require("typeorm");
-class CreateTablePosts1646748623579 {
-    async up(queryRunner) {
-        await queryRunner.createTable(new typeorm_1.Table({
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export class CreateTablePosts1646748623579 implements MigrationInterface {
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.createTable(new Table({
             name: 'Posts',
             columns: [
                 {
@@ -14,6 +12,7 @@ class CreateTablePosts1646748623579 {
                     isGenerated: true,
                     generationStrategy: 'increment',
                 },
+
                 {
                     name: 'title',
                     type: 'varchar',
@@ -21,28 +20,33 @@ class CreateTablePosts1646748623579 {
                     isUnique: true,
                     isNullable: false,
                 },
+
                 {
                     name: 'text',
                     type: 'varchar',
                     width: 250,
                     isNullable: false,
                 },
+
                 {
                     name: 'userId',
                     type: 'int',
                 },
+
                 {
                     name: 'createdAt',
                     type: 'timestamp',
                     isNullable: false,
                     default: 'now()',
                 },
+
                 {
                     name: 'deleteAt',
                     type: 'timestamp',
                     isNullable: true,
                 },
             ],
+
             foreignKeys: [
                 {
                     columnNames: ['userId'],
@@ -54,9 +58,8 @@ class CreateTablePosts1646748623579 {
             ],
         }), true);
     }
-    async down(queryRunner) {
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('Posts', true);
     }
 }
-exports.CreateTablePosts1646748623579 = CreateTablePosts1646748623579;
-//# sourceMappingURL=1646748623579-CreateTablePosts.js.map
