@@ -7,10 +7,12 @@
 /lesson8_login_logout/node_modules/
 /lesson7/dist/
 /lesson6_folderStructure_sqlInjections_Bcrypt_Env_JWT/dist/
-/lesson5/dist/
 /lesson4_eslint_typeorm_migrations/dist/
 /lesson8_login_logout/dist/
-/lesson10_joi_errorHandler/node_modules/
-/lesson10_joi_errorHandler/dist/
+/lesson10_joi_celebrate_errorHandler_ngrok_centry/node_modules/
+/lesson10_joi_celebrate_errorHandler_ngrok_centry/dist/
 /lesson9_refresh_postman_tests/dist/
 /lesson9_refresh_postman_tests/node_modules/
+/lesson11_node joi_nodemailer/node_modules/
+/lesson11_node joi_nodemailer/dist/
+/lesson5/dist/
