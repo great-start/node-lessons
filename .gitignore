@@ -16,3 +16,5 @@
 /lesson11_node joi_nodemailer/node_modules/
 /lesson11_node joi_nodemailer/dist/
 /lesson5/dist/
+/lesson11_node joi_nodemailer/.env
+/lesson11v2_emailTemplates_copyFiles/.env

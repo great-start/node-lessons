@@ -1,24 +1,34 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { authService, tokenService, userService } from '../services';
+import {
+    authService, emailService, tokenService, userService,
+} from '../services';
 import { IRequestExtended } from '../interfaces';
 import { IUser } from '../entity/user';
 import { tokenRepository } from '../repositories/token/tokenRepository';
-import { emailService } from '../services/emailService';
-import { emailActionEnum } from '../constants';
+// import { emailService } from '../services/emailService';
+import { EmailActionEnum } from '../constants';
 
 class AuthController {
-    public async registration(req: Request, res: Response) {
-        const data = await authService.registration(req.body);
-        res.cookie(
-            'refreshToken',
-            data.refreshToken,
-            { maxAge: 24 * 60 * 60 * 1000, httpOnly: true },
-        );
+    public async registration(req: Request, res: Response, next: NextFunction) {
+        try {
+            const data = await authService.registration(req.body);
 
-        await emailService.sendEmail(emailActionEnum.REGISTRATION_SUCCESSFULL, data.userEmail);
+            res.cookie(
+                'refreshToken',
+                data.refreshToken,
+                { maxAge: 24 * 60 * 60 * 1000, httpOnly: true },
+            );
 
-        return res.json(data);
+            const { firstName } = req.body;
+
+            await emailService.sendEmail(EmailActionEnum.REGISTRATION, data.userEmail, { username: firstName });
+            // await emailTemplate.sendTemplateEmail(EmailActionEnum.REGISTRATION, data.userEmail);
+
+            res.json(data);
+        } catch (e) {
+            next(e);
+        }
     }
 
     public async logout(req: IRequestExtended, res: Response): Promise<Response<string>> {
@@ -38,10 +48,13 @@ class AuthController {
 
     async login(req: IRequestExtended, res: Response, next: NextFunction) {
         try {
-            const { id, email, password: hashPassword } = req.user as IUser;
+            const {
+                id, email, password: hashPassword, firstName,
+            } = req.user as IUser;
             const { password } = req.body;
 
-            await emailService.sendEmail(emailActionEnum.WELCOME, email);
+            await emailService.sendEmail(EmailActionEnum.WELCOME, email, { username: firstName });
+            // await emailTemplate.sendTemplateEmail(EmailActionEnum.WELCOME, email);
             await userService.compareUserPassword(password, hashPassword);
 
             const { refreshToken, accessToken } = await tokenService.generateTokenPair({ userId: id, userEmail: email });

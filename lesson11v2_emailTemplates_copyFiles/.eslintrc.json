@@ -21,7 +21,7 @@
             "js": "never",
             "ts": "never"
         }],
-        "max-len": ["error", {"code": 140}], // max длина строчки
+        "max-len": ["error", {"code": 160}], // max длина строчки
         "class-methods-use-this": "off",
         "no-unused-vars": ["error", { "args": "none" }],
         "no-underscore-dangle": "off"
