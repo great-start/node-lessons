@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        style
+            include style.css
+
+    body
+        div
+            | Hello
+            br
+            | This is container
+
+        div.main
+            block content
+
+        div.footer
+            | (c) Node 2022
+            br
+            | Footer
+            br
+            a(href=`${frontendUrl}`) GOOGLE
