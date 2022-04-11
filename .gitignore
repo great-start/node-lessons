@@ -18,12 +18,12 @@
 /lesson5/dist/
 /lesson11_node joi_nodemailer/.env
 /lesson11v2_emailTemplates_copyFiles/.env
-/lesson13_AWS_S3_express-fileupload/node_modules/
-/lesson13_AWS_S3_express-fileupload/.env
-/lesson13_AWS_S3_express-fileupload/.eslintrc.json
-/lesson13_AWS_S3_express-fileupload/ormconfig.json
-/lesson13_AWS_S3_express-fileupload/test.js
-/lesson13_AWS_S3_express-fileupload/package-lock.json
+/lesson13_AWS_S3_express-fileupload_uuid/node_modules/
+/lesson13_AWS_S3_express-fileupload_uuid/.env
+/lesson13_AWS_S3_express-fileupload_uuid/.eslintrc.json
+/lesson13_AWS_S3_express-fileupload_uuid/ormconfig.json
+/lesson13_AWS_S3_express-fileupload_uuid/test.js
+/lesson13_AWS_S3_express-fileupload_uuid/package-lock.json
 /lesson12_cron_pagination/.env
 /lesson12_cron_pagination/test.js
 /lesson12_cron_pagination/package-lock.json
