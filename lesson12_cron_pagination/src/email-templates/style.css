@@ -1,0 +1,13 @@
+.footer {
+    background: rgba(0, 128, 0, 0.27);
+    border-radius: 10px;
+}
+
+.main {
+    background: rgba(211, 211, 211, 0.44);
+}
+
+#user {
+    color: navy;
+    border-radius: 10px;
+}
